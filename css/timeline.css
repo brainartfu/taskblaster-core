@@ -1,0 +1,39 @@
+.timeline-row {
+    height: 50px;
+    width: calc(100vw - 400px);
+    flex-shrink: 0;
+    background-color: #383838;
+    position: relative;
+}
+
+.timeline {
+    /* width: calc(100% + 100px); */
+    transform-origin: top;
+    position: absolute;
+    display: flex;
+    /* overflow: hidden; */
+}
+
+/* .timeline.day {
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+} */
+
+.timeline .unit {
+    /* min-width: 50px;
+    max-width: 50px; */
+    display: inline-block;
+    text-align: center;
+    color: white;
+    height: 100vh;
+    padding-top: 20px;
+}
+
+.timeline .unit.even {
+    background-color: #0000007a;
+}
+
+.timeline .unit.odd {
+    background-color: #00000057;
+}

@@ -1,0 +1,23 @@
+{
+  "name": "taskblaster",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.6.0",
+    "jquery": "^3.6.0",
+    "jquery-contextmenu": "^2.9.2",
+    "jquery-ui-dist": "^1.12.1",
+    "jsplumb": "^2.15.5",
+    "ui-contextmenu": "^1.18.1"
+  },
+  "devDependencies": {
+    "font-awesome": "^4.7.0"
+  }
+}

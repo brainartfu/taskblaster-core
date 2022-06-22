@@ -1,0 +1,232 @@
+.panel-row {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	/* background-color: lightgray; */
+}
+
+.panel {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.panel.dragging {
+	cursor: move;
+}
+
+.item {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	border-radius: 5px;
+}
+
+.item .header {
+	cursor: move;
+	font-weight: bold;
+	padding-left: 5px;
+	height: 25px;
+	min-height: 25px;
+}
+
+.item .min-max {
+	position: absolute;
+	top: 0;
+	right: 0;
+	cursor: pointer;
+	width: 10px;
+	height: 25px;
+	font-size: 10px;
+	margin-right: 7px;
+	margin-top: 5px;
+}
+
+.item .min-max:hover {
+	color: greenyellow;
+}
+
+.item.minimized {
+	height: 25px !important;
+}
+
+.item.minimized .content, .item.minimized .footer, .item.minimized .ui-resizable-handle {
+	display: none !important;
+}
+
+.item .footer {
+	width: 100%;
+	height: 10px;
+	position: absolute;
+	bottom: 0;
+}
+
+.group {
+	border: 0;
+}
+
+.group:hover .content {
+	border-color: darkblue;
+}
+
+.group>.header {
+	background-color: cadetblue;
+	/* background-image: linear-gradient(white, cadetblue,  cadetblue, cadetblue, cadetblue, cadetblue, cadetblue); */
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom: 1px dashed black;
+}
+
+.group>.content {
+	width: 100%;
+	background-color: #7addec80;
+	height: calc(100% - 25px);
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border: 1px dashed dodgerblue;
+	border-top: 0;
+	box-sizing: border-box;
+}
+
+.group.selected>.header {
+	background-color: #1a9b9e;
+}
+
+.group.selected>.content {
+	background-color: #8ef0ff;
+}
+
+.group.minimized>.header {
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border-bottom: 0;
+}
+
+.group.target>.content {
+	background: #00000033;
+}
+
+.panel.target {
+	background: #00000022;
+}
+
+.task {
+	color: white;
+	background-color: #17a2b8;
+	box-shadow: inset 0 0 1px 1px #015f84;
+}
+
+.task.minimized .header {
+	border-bottom: 0;
+}
+
+.task>.header {
+	border-bottom: 1px dashed lightcyan;
+}
+
+.task>.content {
+	padding-left: 5px;
+	height: 100%;
+}
+
+.task.selected {
+	background-color: #015f84;
+}
+
+.handle {
+	position: absolute;
+	width: 7px;
+	height: 7px;
+	background-color: orange;
+	left: 1px;
+	bottom: 1px;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.handle:hover {
+	background-color: blue;
+}
+
+.handle.line-start {
+	background-color: red;
+}
+
+.ui-resizable-s {
+	width: calc(100% - 15px);
+	left: 15px;
+}
+
+.ui-resizable-se {
+	right: -2px;
+	bottom: -2px;
+	z-index: auto!important;
+}
+
+.select-area {
+	position: absolute;
+	border: 1px dashed red;
+	background-color: transparent;
+	pointer-events: none;
+}
+
+.ui-selectable-helper {
+	border: 0;
+	background-color: #ff00001e;
+}
+
+.item>.header>.title>.editor {
+	border: 0;
+	height: 20px;
+	width: calc(100% - 25px);
+	min-width: calc(100% - 25px);
+}
+
+.task>.content>.editor {
+	border: 0;
+	background: #ffffffcc;
+	width: calc(100% + 1px);
+	min-width: calc(100% + 1px);
+	height: calc(100% - 11px);
+	margin-left: -3px;
+	margin-top: 1px;
+}
+
+.editor:focus, .editor:active {
+	outline: 0;
+	border: 0;
+}
+
+.full-screen {
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	cursor: pointer;
+	color: #0075ff;
+}
+
+.full-screen:hover {
+	color: #005cc8;
+}
+
+.zoom-bar {
+	position: absolute;
+	bottom: 10px;
+	right: 40px;
+}
+
+.zoom-range {
+	cursor: pointer;
+	height: 10px;
+}
+
+.zoom-btn {
+	color: #0075ff;
+	cursor: pointer;
+	display: inline-block;
+}
+
+.zoom-btn:hover {
+	color: #005cc8;
+}

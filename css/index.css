@@ -1,0 +1,173 @@
+@import url('../node_modules/font-awesome/css/font-awesome.min.css');
+body {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+}
+
+.header-row {
+	height: 70px;
+	flex-shrink: 0;
+	background: #1e2022;
+	box-shadow: 0 1px 15px rgb(0 0 0 / 10%), 0 1px 8px rgb(0 0 0 / 10%);
+	z-index: 2;
+}
+
+.navbar {
+	top: 7px;
+}
+
+.navbar-collapse {
+	flex-grow: 0;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+	color: rgba(255, 255, 255, .8);
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+	color: white;
+}
+
+.content-row {
+	height: 100%;
+	display: flex;
+	overflow: hidden;
+}
+
+.footer-row {
+	height: 50px;
+	flex-shrink: 0;
+	background: #1e2022;
+	box-shadow: 0 1px 15px rgb(0 0 0 / 10%), 0 1px 8px rgb(0 0 0 / 10%);
+	z-index: 1;
+}
+
+.left-col {
+	width: 200px;
+	flex-shrink: 0;
+	padding: 10px;
+	background: #1e2022;
+	box-shadow: 0 1px 15px rgb(0 0 0 / 10%), 0 1px 8px rgb(0 0 0 / 10%);
+	z-index: 1;
+}
+
+.left-col .btn {
+	width: 100%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.right-col {
+	width: 200px;
+	flex-shrink: 0;
+	padding: 10px;
+	box-shadow: 0 1px 15px rgb(0 0 0 / 10%), 0 1px 8px rgb(0 0 0 / 10%);
+	background: #1e2022;
+	z-index: 1;
+}
+
+.right-col .code {
+	width: 100%;
+	height: 100%;
+	overflow-wrap: anywhere;
+	font-size: 12px;
+	font-family: 'Courier New', Courier, monospace;
+}
+
+.board-col {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	background: #252525;
+}
+
+.context-menu-list {
+	min-width: 10em;
+	z-index: 100!important;
+}
+
+.context-menu-icon-delete, .context-menu-icon-delete::before {
+	color: red;
+}
+
+.users-container {
+	height: 100px;
+	padding: 5px;
+	background: #d1edff;
+}
+
+.users-container .avatar {
+	width: 35px;
+	height: 35px;
+	border-radius: 20px;
+	border: 2px solid white;
+	margin: 3px 1px;
+	cursor: pointer;
+}
+
+.users-container .avatar.active {
+	border-color: darkcyan;
+}
+
+.chat-container {
+	height: 200px;
+	position: relative;
+	padding: 5px;
+}
+
+#messagesTxt {
+	height: 150px;
+	overflow: auto;
+	font-size: 0.9em;
+	display: flex;
+	flex-direction: column;
+}
+
+#messageTxt {
+	position: absolute;
+	bottom: 5px;
+	width: calc(100% - 50px);
+}
+
+.message {
+	display: inline-block;
+	margin: 2px 0;
+}
+
+.message span {
+	border-radius: 5px;
+	padding: 0 5px 2px 5px;
+}
+
+.message.mine {
+	text-align: right;
+}
+
+.message.mine span {
+	background: lightpink;
+}
+
+.message.yours span {
+	background: lightskyblue;
+}
+
+#sendMessageBtn {
+	position: absolute;
+	right: 5px;
+	width: 35px;
+	text-align: center;
+	bottom: 5px;
+}
+
+label {
+	color: #8f8f8f
+}
+.form-control {
+	background: #1e2022;
+	border-color: #424242;
+	color: #8f8f8f;
+}
+.form-control:focus {
+	background-color: #1e2022;
+}

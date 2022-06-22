@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Task Blaster</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="./node_modules/jquery-ui-dist/jquery-ui.min.css" rel="stylesheet" />
+    <link href="./node_modules/jquery-ui-dist/jquery-ui.theme.min.css" rel="stylesheet" />
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/> -->
+    <!-- <link href="./node_modules/font-awesome/css/font-awesome.min.css"> -->
+
+    <link rel="stylesheet" href="./node_modules/jquery-contextmenu/dist/jquery.contextMenu.min.css">
+
+    <link type="text/css" href="./css/diagram.css" rel="stylesheet" />
+    <link type="text/css" href="./css/timeline.css" rel="stylesheet" />
+    <link type="text/css" href="./css/index.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header class="header-row">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">LOGO</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Make a plan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Pricing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About us</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- <div class="user-avatar">
+                    <img class="photo" src="./assets/photo/3.png" />
+                </div> -->
+            </div>
+        </nav>
+    </header>
+
+    <div class="content-row">
+        <div class="left-col">
+            <button class="btn btn-primary new-task">New Task</button>
+            <button class="btn btn-primary minimize-all">Minimize All</button>
+            <button class="btn btn-primary maximize-all" style="display: none;">Maximize All</button>
+            <button class="btn btn-danger delete-task">Delete Tasks</button>
+        </div>
+        <div class="board-col" onselectstart="return false;">
+            <div class="timeline-row">
+                <div class="timeline"></div>
+            </div>
+            <div class="panel-row">
+                <div id="panel" class="panel"></div>
+                <div class="full-screen d-none"><i class="fa fa-expand"></i></div>
+                <div class="zoom-bar d-none">
+                    <div class="zoom-btn zoom-out"><i class="fa fa-search-minus"></i></div>
+                    <input type="range" class="zoom-range" step="0.1" min="0.5" max="1.5" value="1">
+                    <div class="zoom-btn zoom-in"><i class="fa fa-search-plus"></i></div>
+                    <div class="zoom-val"></div>
+                </div>
+            </div>
+        </div>
+        <div class="right-col">
+            <div id="dataForm" style="display: none;">
+                <div class="form-group">
+                    <label for="titleTxt">Title</label>
+                    <input type="text" class="form-control form-control-sm" id="titleTxt">
+                </div>
+                <div class="form-group">
+                    <label for="contentTxt">Description</label>
+                    <textarea class="form-control form-control-sm" id="contentTxt" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="startDay">Period</label>
+                    <input type="date" class="form-control form-control-sm mb-1" id="startDay">
+                    <input type="date" class="form-control form-control-sm" id="endDay">
+                </div>
+                <div class="form-group">
+                    <label for="startDay">Users (3/8)</label>
+                    <div class="form-control users-container">
+                        <img class="avatar active" src="./assets/photo/1.png" />
+                        <img class="avatar" src="./assets/photo/2.png" />
+                        <img class="avatar active" src="./assets/photo/3.png" />
+                        <img class="avatar" src="./assets/photo/4.png" />
+                        <img class="avatar" src="./assets/photo/5.png" />
+                        <img class="avatar" src="./assets/photo/6.png" />
+                        <img class="avatar" src="./assets/photo/7.png" />
+                        <img class="avatar active" src="./assets/photo/8.png" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="messageTxt">Chat</label>
+                    <div class="form-control chat-container">
+                        <div id="messagesTxt">
+                            <div class="message yours"><span>Hello</span></div>
+                            <div class="message mine"><span>Hi</span></div>
+                            <div class="message mine"><span>How are you?</span></div>
+                            <div class="message yours"><span>I am good, and you?</span></div>
+                            <div class="message mine"><span>Fine, thanks</span></div>
+                        </div>
+                        <input type="text" class="form-control form-control-sm" id="messageTxt">
+                        <button id="sendMessageBtn" class="btn btn-primary btn-sm"><i class="fa fa-send"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="info"></div>
+        </div>
+    </div>
+
+    <footer class="footer-row"></footer>
+
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
+    <script src="./node_modules/jsplumb/dist/js/jsplumb.min.js"></script>
+    <!-- <script src="./node_modules/moment/min/moment.min.js"></script> -->
+
+    <script src="./node_modules/jquery-contextmenu/dist/jquery.contextMenu.min.js"></script>
+    <script src="./node_modules/jquery-contextmenu/dist/jquery.ui.position.min.js"></script>
+
+    <!-- <script src="./node_modules/ui-contextmenu/jquery.ui-contextmenu.min.js"></script> -->
+
+    <script src="./libs/jquery-collision/jquery-collision.min.js"></script>
+    <script src="./libs/jquery-collision/jquery-ui-draggable-collision.min.js"></script>
+
+    <script src="./js/dataset.js"></script>
+    <script src="./js/functions.js"></script>
+    <script src="./js/diagram.js"></script>
+    <script src="./js/timeline.js"></script>
+    <script src="./js/popup.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
